@@ -139,4 +139,5 @@ main section .right .filter input::-webkit-slider-thumb{
 canvas{
     max-width: 90%;
     max-height: 70vh;
+    display: none;
 }
