@@ -141,3 +141,37 @@ canvas{
     max-height: 70vh;
     display: none;
 }
+
+/* Preset container */
+.presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem; /* gap between buttons */
+}
+
+/* Preset buttons */
+.preset-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: var(--border-radius-md);
+    background-color: var(--bg-secondary-color);
+    color: var(--text-primary-color);
+    cursor: pointer;
+    font-size: var(--font-size-md);
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Hover effect */
+.preset-btn:hover {
+    background-color: var(--bg-active-color);
+    color: var(--text-active-color);
+    transform: translateY(-2px);
+}
+
+/* Active preset highlight (optional, dynamic class via JS) */
+.preset-btn.active {
+    background-color: var(--bg-success-color);
+    color: var(--text-primary-color);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}

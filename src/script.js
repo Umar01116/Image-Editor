@@ -204,3 +204,114 @@ downloadbtn.addEventListener('click', ()=>{
     link.href = imagecanvas.toDataURL()
     link.click()
 })
+
+const presetButtons = document.querySelectorAll('.preset-btn');
+
+const presets = {
+    normal: {
+        brightness: 100,
+        contrast: 100,
+        saturation: 100,
+        hueRotation: 0,
+        blur: 0,
+        grayscale: 0,
+        sepia: 0,
+        opacity: 100,
+        invert: 0
+    },
+    bw: {
+        brightness: 100,
+        contrast: 120,
+        saturation: 0,
+        hueRotation: 0,
+        blur: 0,
+        grayscale: 100,
+        sepia: 0,
+        opacity: 100,
+        invert: 0
+    },
+    vintage: {
+        brightness: 110,
+        contrast: 90,
+        saturation: 80,
+        hueRotation: 0,
+        blur: 0,
+        grayscale: 0,
+        sepia: 40,
+        opacity: 100,
+        invert: 0
+    },
+    warm: {
+        brightness: 105,
+        contrast: 100,
+        saturation: 125,
+        hueRotation: 12,
+        blur: 0,
+        grayscale: 0,
+        sepia: 25,
+        opacity: 100,
+        invert: 0
+    },
+    cold: {
+        brightness: 95,
+        contrast: 115,
+        saturation: 80,
+        hueRotation: -12,
+        blur: 0,
+        grayscale: 0,
+        sepia: 0,
+        opacity: 100,
+        invert: 0
+    },
+    cinematic: {
+        brightness: 90,
+        contrast: 130,
+        saturation: 110,
+        hueRotation: 0,
+        blur: 0,
+        grayscale: 0,
+        sepia: 10,
+        opacity: 100,
+        invert: 0
+    },
+    soft: {
+        brightness: 110,
+        contrast: 90,
+        saturation: 105,
+        hueRotation: 0,
+        blur: 1,
+        grayscale: 0,
+        sepia: 0,
+        opacity: 100,
+        invert: 0
+    },
+    dramatic: {
+        brightness: 95,
+        contrast: 150,
+        saturation: 120,
+        hueRotation: 0,
+        blur: 0,
+        grayscale: 0,
+        sepia: 5,
+        opacity: 100,
+        invert: 0
+    }
+};
+
+presetButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        if (!image) return;
+
+        const presetName = btn.dataset.preset;
+        const preset = presets[presetName];
+
+        Object.keys(preset).forEach(key => {
+            filters[key].value = preset[key];
+
+            const slider = document.getElementById(key);
+            if (slider) slider.value = preset[key];
+        });
+
+        applyfilters();
+    });
+});
